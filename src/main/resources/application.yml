@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: DMS
+
+  datasource:
+    url: jdbc:mysql://localhost:3300/dms?createDatabaseIfNotExist=true
+    username: root
+    password: Mostafa28#
+    hikari:
+      connection-timeout: 50000
+      idle-timeout: 300000
+      max-lifetime: 900000
+      maximum-pool-size: 8
+      minimum-idle: 8
+      maxmimum-pool-size: 20
+      pool-name: Mypool
+      connection-test-query: select 1 from dual
+      auto-commit: false
+
+  mvc:
+    log-request-details: true
+    throw-exception-if-no-handler-found: true
+
+  resources:
+    add-mappings: false
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level:
+    org:
+      hibernate: info
+      hibernate.SQL: debug
+    springframework:
+      web: DEBUG
+      security: DEBUG
+
+auth:
+  secret: global-sec-key
+  access:
+    expiration: 36000000
+
+security:
+  enable-csrf: false
+
+
+server:
+  servlet:
+    context-path: /api/v1
+  port : 8080
+
+api:
+  login: /login
+  role: /role
+  user: /user
