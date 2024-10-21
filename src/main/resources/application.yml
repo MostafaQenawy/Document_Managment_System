@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: mongodb
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/db
+  main:
+    allow-circular-references: true
+
+server:
+  port: 8081
+
+auth:
+  secret: global-sec-key
+  access:
+    expiration: 36000000
+
+
+mongo:
+  workspace:
+    base-uri: /workspace
+    createWorkspace: /{name}
+    getWorkspace: /{name}
+    getAll: /all
+    updateWorkspace: /{oldName}/{newName}
+    deleteWorkspace: /{name}
+  document:
+    base-uri: /file
+  directory:
+    base-uri: /directory
+
+
+storage:
+  local: D:\Mongodb
